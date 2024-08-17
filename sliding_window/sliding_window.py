@@ -1,12 +1,11 @@
 import random
 
-#In this algorithm I will select subsets of N and search
-#to see which subset has the highest sum val in len of list
-#using python
+# In this algorithm I will select subsets of N and search
+# to see which subset has the highest sum val in len of list
+# using python
 
 data_points = []
 amt_data_points = random.randint(5, 20)
-
 i = 0
 while i != amt_data_points:
     data_points.append(random.randint(0, 9999))
@@ -22,11 +21,13 @@ if len_of_input > amt_data_points:
 # -----------------
 largest_sum = 0
 i = 0
-while i + len_of_input != len(data_points):
+while not i + len_of_input > len(data_points):
+    print(data_points[i: i + len_of_input])
     if sum(data_points[i: i + len_of_input - 1]) > largest_sum:
         largest_sum = sum(data_points[i: i + len_of_input - 1])
         i += 1
     else:
         i += 1
 
+print(data_points)
 print(largest_sum)
