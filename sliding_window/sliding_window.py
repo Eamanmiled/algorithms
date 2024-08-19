@@ -11,20 +11,28 @@ while i != amt_data_points:
     data_points.append(random.randint(0, 9999))
     i += 1
 print("There is", amt_data_points, "data points")
-len_of_input = int(input("How Long would you like your subset to be? "))
-if len_of_input > amt_data_points:
-    print("that's larger then the amount of data points available silly")
-    len_of_input = int(input("Lets try this again or there will be a error as its late and cba to implement a fix: "))
+inp = input("How Long would you like your subset to be? ")
+while True:
+    if inp.isdigit():
+        inp = int(inp)
 
+        if inp > amt_data_points:
+            print("thats too big of a num???")
+
+        else:
+            break
+    else:
+        print("thats not a numeric number i.e 1 or 2???")
+    inp = input("try again :")
 # -----------------
 # actual algorithm is below all above is for random and interactivity
 # -----------------
 largest_sum = 0
 i = 0
-while not i + len_of_input > len(data_points):
-    print(data_points[i: i + len_of_input])
-    if sum(data_points[i: i + len_of_input - 1]) > largest_sum:
-        largest_sum = sum(data_points[i: i + len_of_input - 1])
+while not i + inp > len(data_points):
+    print(data_points[i: i + inp])
+    if sum(data_points[i: i + inp - 1]) > largest_sum:
+        largest_sum = sum(data_points[i: i + inp - 1])
         i += 1
     else:
         i += 1
