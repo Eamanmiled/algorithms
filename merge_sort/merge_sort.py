@@ -2,39 +2,45 @@ import random
 
 data_points = []
 amt_data_points = random.randint(5, 20)
-i = 0
-while i != amt_data_points:
+for _ in range(amt_data_points):
     data_points.append(random.randint(0, 9999))
-    i += 1
-print("There is", amt_data_points, "data points")
+print("There are", amt_data_points, "data points")
+print("Og data points:", data_points)
 
 # -algo-
+
+
 def swapPos(list, in1, in2):
     list[in1], list[in2] = list[in2], list[in1]
     return list
 
 
-def sorting(A, B):
-    output = A + B
+def sorting(A, B): # left and right
+    output = []
     i = 0
-    while i < len(output):
-        j = i + 1
-        while j < len(output):
-            if output[i] > output[j]:
-                swapPos(output, i, j)
-                j = i + 1
+    j = 0
+    while i < len(A) and j < len(B):
+        if A[i] < B[j]: # if the left list index is smaller
+            output.append(A[i])
+            i += 1
+        else: # if the right list index is smaller
+            output.append(B[j])
             j += 1
-        i += 1
-    print(output)
+# once it hits the end slap rest of other list on the end
+    output.extend(A[i:])
+    output.extend(B[j:])
+
+    return output
 
 
-data_points2 = [2, 4]
+def dividing(lis):
+    if len(lis) <= 1:
+        return lis
+    mid = len(lis) // 2
+    left_half = dividing(lis[:mid]) # Recursively divide the list into two halves
+    right_half = dividing(lis[mid:])
+    return sorting(left_half, right_half) # then merge
 
-sorting(data_points, data_points2)
 
-# copy_lis = data_points
-# # left
-# mid = (len(copy_lis) - 1) // 2
-# i = 0
-# while i != mid
-
+sorted_data_points = dividing(data_points)
+print("Sorted data points from lowest to highest:", sorted_data_points)
