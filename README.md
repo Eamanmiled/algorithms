@@ -6,6 +6,8 @@ This repository contains implementations of various algorithms in different doma
 
 - **Binary_Search**: Implementation of the binary search algorithm.
 - **Bogo_Sort**: A highly inefficient sorting algorithm, primarily used for educational purposes.
+- **Insertion_sort**: A simple and intuitive sorting algorithm that builds the final sorted array one item at a time.
+- **bubble_sort**: A straightforward sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
 - **linear_search**: Implementation of the linear search algorithm.
 - **merge_sort**: An efficient, stable, comparison-based, divide and conquer sorting algorithm.
 - **sliding_window**: Implementation of sliding window techniques, often used for solving problems involving subarrays.
